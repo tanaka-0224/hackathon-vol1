@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Rules from './Rules';
-import Game from './Game';
-import Start from './Start';
+import Rules from './components/Rules';
+import Game from './components/Game';
+import Start from './components/Start';
 
 function App () {
   return (
