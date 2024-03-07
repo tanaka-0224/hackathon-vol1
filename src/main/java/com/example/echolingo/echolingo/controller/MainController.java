@@ -22,14 +22,14 @@ public class MainController {
         return "mainmenu";
     }
 
-    @PostMapping("/navigateToRules")
+    @PostMapping("/Rules")
     public String navigateToRules(Model model) {
         model.addAttribute("gameRules", "Game rules\n1. rule 1\n2. rule 2\n.\n.\n.");
         // return new ModelAndView("redirect:/rules");
         return "rules";
     }
 
-    @PostMapping("/navigateToGamesession")
+    @PostMapping("/Gamesession")
     public String navigateToGameSession(Model model) {
         model.addAttribute("message", "Game Session");
         return "gamesession";
