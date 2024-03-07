@@ -5,6 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @Controller
@@ -18,4 +22,18 @@ public class MainController {
         return "mainmenu";
     }
 
+    @PostMapping("/navigateToRules")
+    public String navigateToRules(Model model) {
+        model.addAttribute("gameRules", "Game rules\n1. rule 1\n2. rule 2\n.\n.\n.");
+        // return new ModelAndView("redirect:/rules");
+        return "rules";
+    }
+
+    @PostMapping("/navigateToGamesession")
+    public String navigateToGameSession(Model model) {
+        model.addAttribute("message", "Game Session");
+        return "gamesession";
+    }
+    
+    
 }

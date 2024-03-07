@@ -1,7 +1,7 @@
 <!-- このHTMLファイルは作成しているバックエンド側の動作確認のために一時的に作成したファイルです。 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,13 @@
 </head>
 <body>
     <h1 th:text="${title}"></h1>
-    <button>Rules</button>
-   <button>Start</button> 
+    <form action="/navigateToRules" method="post">
+        <button type="submit">Rules</button>
+    </form>
+    <form action="/navigateToGamesession" method="post">
+        <button type="submit">Start</button>
+    </form>     
+    </form> 
    <p>
         <div th:text="${message}" />
    </p>
