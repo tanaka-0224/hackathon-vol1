@@ -1,4 +1,5 @@
 import { Link} from 'react-router-dom';
+import "../types/Visual.css";
 
 const Rules = () => {
     return (
