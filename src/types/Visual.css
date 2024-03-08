@@ -49,14 +49,17 @@ body {
   box-shadow: inset 10px 10px 5px #1a8077, inset -10px -10px 5px #26c0b3;
 }
 
+.card-asasin {
+  width: 300px;
+  height: 100px;
+  border-radius: 57px;
+  background: #4a4e4d;
+  box-shadow: 10px 10px 5px #3b3e3e, -10px -10px 5px #595e5c;
+}
 
-/* .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    gap: 0px 100px;
-  } */
+
+.card-asasin:active {
+  box-shadow: inset 10px 10px 5px #3b3e3e, inset -10px -10px 5px #595e5c;
+}
 
    
