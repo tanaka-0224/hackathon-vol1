@@ -53,20 +53,6 @@ const SlangGrid = () => {
     gridRows.push(row);
   }
 
-  /*画像
-  const imagePath = "images/blue_serious.png"; // publicディレクトリからの相対パス
-
-  // 画像スタイル
-  const imageStyle = {
-    position: "fixed",
-    top: "40px",
-    bottom: "10px",
-    right: "5px",
-    width: "100px", // 適切なサイズに調整してください
-    height: "auto", // 適切なサイズに調整してください
-  };
-  */
-
   return (
     <div>
       <div>
