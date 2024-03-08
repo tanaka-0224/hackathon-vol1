@@ -5,7 +5,7 @@ import React from "react";
 const Start  = () => {
     return (
       <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-         <h1 style={{textAlign: "center", lineHeight:"60px",fontSize:250}}>
+         <h1 style={{textAlign: "center", lineHeight:"180px",fontSize:250}}>
           EchoLingo
          </h1>
           <Link to="/game" style={{ textDecoration: 'none' }}>

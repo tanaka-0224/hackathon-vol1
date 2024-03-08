@@ -1,0 +1,48 @@
+.make{
+    animation-name:blurAnime;
+	animation-duration:1.5s;
+	animation-fill-mode:forwards;    
+}
+
+@keyframes blurAnime{
+    from {
+        filter: blur(10px);
+        transform: scale(1.2);
+    }
+
+    to {
+        filter: blur(0);
+        transform: scale(1);
+      }
+}
+
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .confetti {
+    position: absolute;
+    width: 30px; /* 紙吹雪のパーティクルの幅 */
+    height: 30px; /* 紙吹雪のパーティクルの高さ */
+    border-radius: 10px; /* 円形のパーティクルを作成 */
+    background-color: #fff; /* デフォルトのパーティクルの背景色 */
+    animation: confetti-fall; /* 紙吹雪の落下アニメーションを適用 */
+  }
+  
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-140vh) rotate(0deg); /* 画面の上からパーティクルを開始 */
+      opacity: 1; /* 不透明度を0に設定してフェードインを実現 */
+    }
+    100% {
+      transform: translateY(90vh) rotate(720deg); /* 画面の下までパーティクルを落とす */
+      opacity: 0.3; /* 不透明度を1に設定してフェードアウトを実現 */
+    }
+  }
+  
+
