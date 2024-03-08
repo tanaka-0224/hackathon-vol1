@@ -3,6 +3,7 @@ package com.example.echolingo.echolingo.service;
 import com.example.echolingo.echolingo.po.Menu;
 import com.example.echolingo.echolingo.po.Rules;
 import com.example.echolingo.echolingo.po.Game;
+import com.example.echolingo.echolingo.po.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,9 +37,17 @@ public class MainServiceImpl implements MainService{
 
     @Override
     public Game getGame() {
-        Game gamesession = new Game();
-        gamesession.setTitle("Game Session");
-        gamesession.setMessage("Start Game!");
-        return gamesession;
+        Game game = new Game();
+        game.setTitle("Game Session");
+        game.setMessage("Start Game!");
+        return game;
+    }
+
+    @Override
+    public Result getResult() {
+        Result result = new Result();
+        result.setTitle("Result");
+        result.setMessage("Game Result");
+        return result;
     }
 }
