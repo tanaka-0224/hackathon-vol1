@@ -87,8 +87,6 @@ const SlangGrid = () => {
           ))
         )}
       </div>
-      <div></div>
-      <div></div>
     </div>
   );
 };

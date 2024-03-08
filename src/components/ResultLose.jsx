@@ -1,7 +1,7 @@
 import React from "react";
 
 const ResultLose = () => {
-  return <div>You Lose</div>;
+  return <div>負け</div>;
 };
 
 export default ResultLose;
