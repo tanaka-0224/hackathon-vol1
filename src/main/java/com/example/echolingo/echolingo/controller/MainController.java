@@ -2,6 +2,7 @@ package com.example.echolingo.echolingo.controller;
 
 import com.example.echolingo.echolingo.po.Menu;
 import com.example.echolingo.echolingo.po.Rules;
+import com.example.echolingo.echolingo.po.Game;
 import com.example.echolingo.echolingo.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +16,10 @@ public class MainController {
 
     @Autowired
     private MainService mainService;
+    
     @GetMapping("/")
     // public String requestMethodName(@RequestParam String param) {
-    public ResponseEntity<Menu> requestMethodName(Model model) {
+    public ResponseEntity<Menu> navigateToMainmenu(Model model) {
         Menu menu = mainService.getMenu();
         return ResponseEntity.ok(menu);
     }
@@ -28,11 +30,15 @@ public class MainController {
         return ResponseEntity.ok(rules);
     }
 
-    @PostMapping("/gamesession")
-    public String navigateToGameSession(Model model) {
-        model.addAttribute("message", "Game Session");
-        return "gamesession";
+    // @PostMapping("/gamesession")
+    // public String navigateToGameSession(Model model) {
+    //     model.addAttribute("message", "Game Session");
+    //     return "gamesession";
+    // }
+    @GetMapping("/gamesession")
+    public ResponseEntity<Game> navigateToGame(Model model) {
+        Game game = mainService.getGame();
+        return ResponseEntity.ok(game);
     }
-    
     
 }

@@ -2,9 +2,9 @@ package com.example.echolingo.echolingo.service;
 
 import com.example.echolingo.echolingo.po.Menu;
 import com.example.echolingo.echolingo.po.Rules;
+import com.example.echolingo.echolingo.po.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 @Service
 public class MainServiceImpl implements MainService{
@@ -32,5 +32,13 @@ public class MainServiceImpl implements MainService{
         menu.setTitle("EchoLingo");
         menu.setMessage("This Web app is designed to learn English slangs");
         return menu;
+    }
+
+    @Override
+    public Game getGame() {
+        Game gamesession = new Game();
+        gamesession.setTitle("Game Session");
+        gamesession.setMessage("Start Game!");
+        return gamesession;
     }
 }
