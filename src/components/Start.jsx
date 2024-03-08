@@ -15,7 +15,7 @@ const Start  = () => {
              </h1>
             </div>
           </Link>
-          <Link to="/rules" style={{ textDecoration: 'underline #53A296' }}>
+          <Link to="/rules" style={{ textDecoration: 'underline #428278' }}>
               <h2 style={{textAlign: "center",lineHeight:"110px",fontSize:70,color:"#000000"}}>
                 Rules
              </h2>
