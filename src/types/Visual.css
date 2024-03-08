@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Kalam', sans-serif;
+  background-color: #FBF3BA;
+  display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+
+.neumobutton {
+  width: 300px;
+  height: 100px;
+  border-radius: 57px;
+  background: #53a296;
+  box-shadow: 10px 10px 5px #428278, -10px -10px 5px #64c2b4;
+}
+
+
+.neumobutton:active {
+  box-shadow: inset 10px 10px 5px #428278, inset -10px -10px 5px #64c2b4;
+}
+
+.card-wrong {
+  width: 300px;
+  height: 100px;
+  border-radius: 57px;
+  background: #db605f;
+  box-shadow: 10px 10px 5px #af4d4c,-10px -10px 5px #ff7372;
+}
+
+
+.card-wrong:active {
+  box-shadow: inset 10px 10px 5px #af4d4c, inset -10px -10px 5px #ff7372;
+}
+
+.card-right {
+  width: 300px;
+  height: 100px;
+  border-radius: 57px;
+  background: #20a095;
+  box-shadow: 10px 10px 5px #1a8077, -10px -10px 5px #26c0b3;
+}
+
+
+.card-right:active {
+  box-shadow: inset 10px 10px 5px #1a8077, inset -10px -10px 5px #26c0b3;
+}
+
+
+/* .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 0px 100px;
+  } */
+
+   
