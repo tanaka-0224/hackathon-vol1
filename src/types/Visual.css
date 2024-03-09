@@ -32,9 +32,9 @@ body {
 }
 
 
-/* .card-wrong:active {
+.card-wrong:active {
   box-shadow: inset 10px 10px 5px #af4d4c, inset -10px -10px 5px #ff7372;
-} */
+}
 
 .card-right {
   width: 150px;
@@ -75,4 +75,17 @@ body {
   box-shadow: inset 10px 10px 5px #d5cf9e, inset -10px -10px 5px #ffffd6;
 }
 
-   
+.rotate{
+  animation-name:rotateYAnime;
+  animation-duration:1s;
+  animation-fill-mode:forwards;
+}
+
+@keyframes rotateYAnime{
+  from{
+    transform: rotateY(0);
+    }
+  to{
+    transform: rotateY(-180deg);
+    }
+}
