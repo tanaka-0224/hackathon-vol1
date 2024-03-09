@@ -156,12 +156,16 @@ const Game = () => {
           onStartButtonClick={handlePopupStartButtonClick}
         />
       )}
-
-      <div>
+      <div style={{ display: 'flex' }}>
+      <div className="selected">
         <h1>{selectedSlang && <p style={{fontSize: "50px"}}>Selected Slang: {selectedSlang}</p>}</h1>
       </div>
+      <div className="balloonSlang" style={{textAlign:"center",fontSize:50}}>
+        slang number
+      </div>
+      </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <div 
+      <div className="cards"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(5, 1fr)",
@@ -195,10 +199,11 @@ const Game = () => {
         )}
       </div>
 
-      <div style={{ marginLeft: '20px' }}>
+      <div style={{ marginLeft: '20px' }} >
         <img src="./images/ringo.png" className="slangmaster" alt="slang master"/>
       </div>
       </div>
+      <div style={{ display: 'flex' }}>
       <div className="pressme"
         style={{
           marginTop: "50px",
@@ -209,6 +214,10 @@ const Game = () => {
        onClick={handleButtonPress}
       >
         Press me!
+      </div>
+      <div className="balloonTips" style={{textAlign:"center", fontSize:20}}>
+        tips
+      </div>
       </div>
       {/* カウントダウンタイマー */}
       {isTimerRunning && <CountDown seconds={600000} />}
