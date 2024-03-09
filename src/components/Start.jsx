@@ -10,8 +10,8 @@ const Start  = () => {
          </h1>
           <Link to="/game" style={{ textDecoration: 'none' }}>
             <div class ="neumobutton">
-             <h1 style={{textAlign: "center",lineHeight:"110px",fontSize:65, color:"#000000"}}>
-                Start
+             <h1 style={{textAlign: "center",lineHeight:"110px",fontSize:80, color:"#000000"}}>
+                Play
              </h1>
             </div>
           </Link>

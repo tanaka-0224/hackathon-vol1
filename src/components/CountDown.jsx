@@ -19,5 +19,5 @@ export default function CountDown({ seconds }) {
     }
   }, [countdown]);
 
-  return <div className="CountDownContainer">制限時間: {countdown}</div>;
+  return <div className="CountDownContainer" style={{fontSize:50}}>Time Limit: {countdown}</div>;
 }

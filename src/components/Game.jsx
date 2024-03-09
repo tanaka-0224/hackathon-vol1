@@ -3,6 +3,7 @@ import CountDown from "./CountDown";
 import Popup from "./Popup";
 import "../types/Visual.css";
 
+
 const Game = () => {
   const [randomSlangs, setRandomSlangs] = useState([]);
   const [selectedSlang, setSelectedSlang] = useState("Select slang");
@@ -145,8 +146,8 @@ const Game = () => {
 
   return (
     <div>
-      {/* スタートボタン */}
-      <button onClick={handleStartButtonClick}>Porse</button>
+      {/* スタートボタン ・ポーズボタン*/}
+      <div className="pressme" style={{ textAlign: "center",fontSize: "40px", marginTop: "50px"}}onClick={handleStartButtonClick}>Porse</div>
 
       {/* ポップアップ */}
       {isPopupVisible && (
@@ -157,9 +158,10 @@ const Game = () => {
       )}
 
       <div>
-        <h1>{selectedSlang && <p>Selected Slang: {selectedSlang}</p>}</h1>
+        <h1>{selectedSlang && <p style={{fontSize: "50px"}}>Selected Slang: {selectedSlang}</p>}</h1>
       </div>
-      <div
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div 
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(5, 1fr)",
@@ -192,16 +194,22 @@ const Game = () => {
           ))
         )}
       </div>
-      <button
+
+      <div style={{ marginLeft: '20px' }}>
+        <img src="./images/ringo.png" className="slangmaster" alt="slang master"/>
+      </div>
+      </div>
+      <div className="pressme"
         style={{
-          marginTop: "10px",
+          marginTop: "50px",
           padding: "10px",
-          fontSize: "16px",
+          fontSize: "40px",
+          textAlign: "center"
         }}
        onClick={handleButtonPress}
       >
         Press me!
-      </button>
+      </div>
       {/* カウントダウンタイマー */}
       {isTimerRunning && <CountDown seconds={600000} />}
     </div>
@@ -210,43 +218,3 @@ const Game = () => {
 
 export default Game;
 
-// import "../types/Visual.css";
-// import { Link} from 'react-router-dom';
-
-// const Game = ({ setResult }) => {
-//    const handleWin = () => {
-//       setResult('win');
-//     };
-
-//    const handleLose = () => {
-//       setResult('lose');
-//     };
-
-   
-
-//    return (
-//       <div>
-//         <div class ="card-wrong" >
-//              <h1 style={{textAlign: "center",lineHeight:"110px",fontSize:50, color:"#000000"}}>
-//                 wrong
-//              </h1>
-//         </div>
-//         <Link to="/result" style={{ textDecoration: 'none' }}>
-//          <div className ="card-right" onClick={handleWin}>
-//              <h1 style={{textAlign: "center",lineHeight:"110px",fontSize:50, color:"#000000"}}>
-//                 right
-//              </h1>
-//          </div> 
-//         </Link>
-//         <Link to="/result" style={{ textDecoration: 'none' }}>
-//         <div class ="card-asasin" onClick={handleLose}>
-//              <h1 style={{textAlign: "center",lineHeight:"110px",fontSize:50, color:"#000000"}}>
-//                 asasin
-//              </h1>
-//         </div>
-//         </Link>
-//       </div>
-//     );
-//   };
-
-//   export default Game;

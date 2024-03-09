@@ -89,3 +89,15 @@ body {
     transform: rotateY(-180deg);
     }
 }
+
+.pressme{
+  width: 180px;
+  height: 60px;
+  border-radius: 45%;
+  background: #53a296;
+  box-shadow: 10px 10px 5px #428278, -10px -10px 5px #64c2b4;
+}
+
+.pressme:active {
+  box-shadow: inset 10px 10px 5px #428278, inset -10px -10px 5px #64c2b4;
+}

@@ -16,7 +16,7 @@ const Rules = () => {
         related to the slangs written on some of the blue cards, along with the number of cards (e.g., Energy 4). 
         Please select cards you think are blue. 
         If you choose a red card, the Slang Master will mention the next word and its number. 
-        If you choose a black card, it's game over. If you manage to guess all the blue cards, you win.
+        If you choose a black card, it's game over. If you manage to guess all the blue cards with in the time, you win.
         </h2>
         <Link to="/" style={{ textDecoration: 'underline #428278' }}>
             <h3 style={{textAlign: "center",lineHeight:"20px",fontSize:50,color:"#000000"}}>

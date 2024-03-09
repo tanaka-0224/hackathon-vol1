@@ -17,9 +17,9 @@ const Popup = ({ onClose, children }) => {
         alignItems: "center",
       }}
     >
-      <div style={{ background: "#fff", padding: "20px", borderRadius: "8px" }}>
+      <div style={{ background: "#FBF3BA", padding: "50px", borderRadius: "10px" }}>
         {children}
-        <button onClick={onClose}>Start</button>
+        <div className="neumobutton" onClick={onClose} style={{fontSize:80, textAlign:"center",lineHeight:"120px"}}>Start</div>
       </div>
     </div>
   );
