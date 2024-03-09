@@ -47,7 +47,7 @@ public class MapData {
     }
 
     // Determine 9 Correct cards and 1 Asasin card
-    public static void correctAndAsasinSelection(String[] args) {
+    public static void correctAndAssasinSelection(String[] args) {
         int totalElements = WIDTH * WIDTH; // 総要素数
         Random rand = new Random();
 
