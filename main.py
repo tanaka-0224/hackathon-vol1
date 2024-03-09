@@ -6,6 +6,8 @@ import streamlit as st
 
 client = openai.OpenAI()
 model = "gpt-3.5-turbo"
+
+
 # def main():
 
 
@@ -13,31 +15,39 @@ def get_slang_for_hint(slang):
     return slang
 
 
-class AssistantManger:
+def simulate_slang_conversation(input_sentences):
+    return input_sentences
+
     # thread_id = "thread_qS9jJOxuNeYQhx103qk1NHpe"
     # assistant_id = "asst_EWnnV5jbpe8vPOJ3E6m4Q7Gi"
 
-    thread_id = None
-    assistant_id = None
-    def __init__(self, model: str = model):
+
+class AssistantManger:
+    default_thread_id = None
+    default_assistant_id = None
+
+    def __init__(self, thread_id=None, assistant_id=None):
         self.client = openai.OpenAI()
-        self.model = model
-        self.assistant = None
-        self.thread = None
+        self.model = "gpt-3.5-turbo"
+
         self.run = None
-        self.hint_message = None  # hint message to be sent to the user
-        # Retrieve existing assistant and thread
-        if AssistantManger.assistant_id:
+        self.hint_message = None  # Hint message to be sent to the user
+        self.assistant = assistant_id or AssistantManger.default_assistant_id
+        self.thread = thread_id or AssistantManger.default_thread_id
+
+
+        # Retrieve existing assistant and thread based on the set IDs
+        if self.assistant:
             self.assistant = self.client.beta.assistants.retrieve(
-                assistant_id=AssistantManger.assistant_id
+                self.assistant
             )
-        if AssistantManger.thread_id:
+        if self.thread:
             self.thread = self.client.beta.threads.retrieve(
-                thread_id=AssistantManger.thread_id
+                self.thread
             )
 
     def create_assistant(self, name: str, instructions: str, tools):
-        if not self.assistant:  
+        if not self.assistant:
             assistant_obj = self.client.beta.assistants.create(
                 name=name,
                 instructions=instructions,
@@ -110,9 +120,14 @@ class AssistantManger:
                 final_str = ""
                 for item in output:
                     final_str += "".join(item)
-                
+
                 tool_outputs.append({"tool_call_id": action["id"],
                                      "output": final_str})
+            elif func_name == "simulate_slang_conversation":
+                # 确保这里使用的键与传入的参数匹配
+                input_sentences = arguments["input_sentences"]
+                output = simulate_slang_conversation(input_sentences=input_sentences)
+                tool_outputs.append({"tool_call_id": action["id"], "output": output})
             else:
                 raise ValueError(f"Unknown function {func_name}")
             print("Submitting outputs back to the Assistant...")
@@ -137,7 +152,7 @@ class AssistantManger:
                     print("Timeout: Stopping the wait after 10 seconds.")
                     break
                 # Wait for a completion
-                time.sleep(2)  # Wait for a half-second before checking again
+                time.sleep(1)  # Wait for a half-second before checking again
                 run_status = self.client.beta.threads.runs.retrieve(
                     thread_id=self.thread.id,
                     run_id=self.run.id
@@ -204,7 +219,8 @@ def main():
         if submit_button:
             manager.create_assistant(
                 name="Slang Assistant",
-                instructions=("You're a slang cat assistant. You're very very cute and talk like a talking cat sensei in an anime. Use the provided functions to answer question."),
+                instructions=(
+                    "You're a slang cat assistant. You're very very cute and talk like a talking cat sensei in an anime. Use the provided functions to answer question."),
                 tools=[
                     {
                         "type": "function",
@@ -218,7 +234,7 @@ def main():
                                 },
                                 "required": ["slang"]
                             }
-                        }           
+                        }
                     }
 
                 ]
@@ -233,8 +249,8 @@ def main():
 
             manager.run_assistant(
                 instructions="For each slang, you will not see the meaning of slang but just give a previous new example english sentence included that slang firstly."
-                            "And surely you will also chat with user by speaking japanese in every time."
-                            "If I say the same thing every time, it's because I can only push the button to output one word to communicate with you, meaning I want a new example sentence and I want you to continue to be cute with me, so don't ask me back!"
+                             "And surely you will also chat with user by speaking japanese in every time."
+                             "If I say the same thing every time, it's because I can only push the button to output one word to communicate with you, meaning I want a new example sentence and I want you to continue to be cute with me, so don't ask me back!"
             )
 
             # Wait for completion
