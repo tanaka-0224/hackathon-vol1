@@ -9,20 +9,18 @@ function App () {
   const [result, setResult] = useState(null);
 
   return (
-    <Router>  
-     <Routes>
+    <Router>
+      <Routes>
         <Route exact path="/" element={<Start />} />
         <Route path="/game"  element={<Game setResult={setResult}/>}/>
           
         
         <Route path="/rules" element={<Rules />} />  
-        <Route path="/result" element={<Result Result result={result}/>}/> 
+        <Route path="/result" element={<Result result={result}/>}/> 
       
      </Routes>
     </Router>
   );
-};
+}
 
 export default App;
-
-
