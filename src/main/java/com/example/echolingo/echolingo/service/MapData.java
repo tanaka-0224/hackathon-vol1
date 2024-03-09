@@ -73,8 +73,8 @@ public class MapData {
             int i = index / WIDTH; // 行インデックス
             int j = index % WIDTH; // 列インデックス
             // System.out.println(matrix[i][j]);
-            correctsAndAssasin_i[indexCounter][1] = i;
-            correctsAndAssasin_i[indexCounter][1] = j;
+            correctsAndAssasin_i[indexCounter][0] = i;
+            correctsAndAssasin_i[indexCounter][0] = j;
             indexCounter++;
         }
     }
