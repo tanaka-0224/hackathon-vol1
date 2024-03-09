@@ -15,6 +15,7 @@ const Popup = ({ onClose, children }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        zIndex: 10
       }}
     >
       <div style={{ background: "#FBF3BA", padding: "50px", borderRadius: "10px" }}>

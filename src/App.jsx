@@ -5,6 +5,7 @@ import Game from './components/Game';
 import Start from './components/Start';
 import ResultWin from './components/ResultWin';
 import ResultLose from './components/ResultLose';
+import Talk from './components/Talk';
 
 
 function App () {
@@ -18,6 +19,7 @@ function App () {
         <Route path="/rules" element={<Rules />} />  
         <Route path="/resultwin" element={<ResultWin/>}/> 
         <Route path="/resultlose" element={<ResultLose/>}/> 
+        <Route path="/talk" element={<Talk/>}/> 
      </Routes>
     </Router>
   );

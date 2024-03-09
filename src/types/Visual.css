@@ -145,8 +145,8 @@ body {
   border: 3px solid #333;
   font-weight: bold;
   margin-left: 150px;
-  margin-top:50px;
-  height: 150px;
+  margin-top:10px;
+  height: 100px;
   width: 1000px;
 }
 
@@ -163,24 +163,99 @@ body {
 }
 
 .balloonTips:before {
-  margin-left: -12px;
+  margin-left: -16px;
   border-color: transparent;
   border-bottom-color: #333;
-  border-width: 12px;
+  border-width: 16px;
 }
 
 .balloonTips:after {
-  margin-left: -8px;
+  margin-left: -12px;
   border-color: transparent;
   border-bottom-color: #FBF3BA;
-  border-width: 8px;
+  border-width: 12px;
 }
 
 .selected{
   width: 1000px;
-  height: 150px;
+  height: 110px;
 }
 
 .cards{
   width: 1000px;
+  height:500px;
+}
+
+.talkMaster{
+  position: relative;
+  padding: 1rem 1rem 1rem 1.5rem;
+  border: 3px solid #333;
+  font-weight: bold;
+  /* margin-left: 150px;
+  margin-top:10px; */
+  height: 200px;
+  width: 1000px;
+}
+
+.talkMaster:before,
+
+.talkMaster:after {
+  position: absolute;
+    right: 100%;
+    top: 50%;
+    height: 0;
+    width: 0;
+    border: solid transparent;
+    content: "";
+}
+
+.talkMaster:before {
+  margin-top: -16px;
+  border-color: transparent;
+  border-right-color: #333;
+  border-width: 16px;
+}
+
+.talkMaster:after {
+  margin-top: -12px;
+  border-color: transparent;
+  border-right-color: #FBF3BA;
+  border-width: 12px;
+}
+
+.talkPlayer{
+  position: relative;
+  padding: 1rem 1rem 1rem 1.5rem;
+  border: 3px solid #333;
+  font-weight: bold;
+  /* margin-left: 150px;
+  margin-top:10px; */
+  height: 200px;
+  width: 1000px;
+}
+
+.talkPlayer:before,
+
+.talkPlayer:after {
+  position: absolute;
+    top: 100%;
+    left: 83%;
+    height: 0;
+    width: 0;
+    border: solid transparent;
+    content: "";
+}
+
+.talkPlayer:before {
+  margin-left: -16px;
+  border-color: transparent;
+  border-top-color: #333;
+  border-width: 16px;
+}
+
+.talkPlayer:after {
+  margin-left: -12px;
+  border-color: transparent;
+  border-top-color: #FBF3BA;
+  border-width: 12px;
 }

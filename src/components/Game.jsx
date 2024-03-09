@@ -3,7 +3,6 @@ import CountDown from "./CountDown";
 import Popup from "./Popup";
 import "../types/Visual.css";
 
-
 const Game = () => {
   const [randomSlangs, setRandomSlangs] = useState([]);
   const [selectedSlang, setSelectedSlang] = useState("Select slang");
@@ -147,7 +146,7 @@ const Game = () => {
   return (
     <div>
       {/* スタートボタン ・ポーズボタン*/}
-      <div className="pressme" style={{ textAlign: "center",fontSize: "40px", marginTop: "50px"}}onClick={handleStartButtonClick}>Porse</div>
+      <div className="pressme" style={{ textAlign: "center",fontSize: "40px", marginTop: "30px"}}onClick={handleStartButtonClick}>Porse</div>
 
       {/* ポップアップ */}
       {isPopupVisible && (
@@ -158,7 +157,7 @@ const Game = () => {
       )}
       <div style={{ display: 'flex' }}>
       <div className="selected">
-        <h1>{selectedSlang && <p style={{fontSize: "50px"}}>Selected Slang: {selectedSlang}</p>}</h1>
+        <h1>{selectedSlang && <p style={{fontSize: "40px"}}>Selected Slang: {selectedSlang}</p>}</h1>
       </div>
       <div className="balloonSlang" style={{textAlign:"center",fontSize:50}}>
         slang number
@@ -180,6 +179,7 @@ const Game = () => {
               style={{
                 border: "1px solid #ccc",
                 padding: "10px",
+                fontSize:20,
                 textAlign: "center",
                 cursor: "pointer",
                 backgroundColor:
@@ -199,14 +199,15 @@ const Game = () => {
         )}
       </div>
 
-      <div style={{ marginLeft: '20px' }} >
+      <div style={{ marginLeft: '20px', marginTop: '30px' }} >
         <img src="./images/ringo.png" className="slangmaster" alt="slang master"/>
+        <p style={{ fontSize:40, textAlign:"center",marginTop: '30px'}}>Slang Master</p>
       </div>
       </div>
       <div style={{ display: 'flex' }}>
       <div className="pressme"
         style={{
-          marginTop: "50px",
+          marginTop: "30px",
           padding: "10px",
           fontSize: "40px",
           textAlign: "center"

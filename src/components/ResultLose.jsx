@@ -10,10 +10,16 @@ const ResultLose = () => {
       <div>
         <p className="make" style={{textAlign: "center", lineHeight:"0px",fontSize:300}}>LOSE</p>
       </div>
+
+      <Link to="/talk" style={{ textDecoration: 'underline #428278' }}>
+        <h2 style={{textAlign: "center",fontSize:65,marginTop:"0px",color:"#000000"}}>
+          Talk with Slang Master
+        </h2>
+      </Link>
     
-    <Link to="/" style={{ textDecoration: 'none' }}>
+    <Link to="/game" style={{ textDecoration: 'none' }}>
       <div class ="neumobutton" >
-          <h1 style={{textAlign: "center",lineHeight:"110px",fontSize:65, color:"#000000"}}>
+          <h1 style={{textAlign: "center",marginTop:"0px",fontSize:65, color:"#000000"}}>
               Replay
           </h1>
       </div>
