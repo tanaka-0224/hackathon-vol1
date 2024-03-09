@@ -14,13 +14,6 @@ const Game = ({ setResult }) => {
   const [isTimerRunning, setTimerRunning] = useState(false);
   const [selectnumber, setSelectNumber] = useState(0);
   const [colorCounts, setColorCounts] = useState({});
-  const handleWin = () => {
-    setResult('win');
-  };
-
- const handleLose = () => {
-    setResult('lose');
-  };
 
   const gridRef = useRef([]);
 
@@ -28,8 +21,7 @@ const Game = ({ setResult }) => {
     // 色の数が変更されたときの処理
     if (colorCounts["#FF0000"] === 12) {
       // 画面遷移させる処理
-      window.location.href = "/result";
-      handleWin();
+      window.location.href = "/resultwin";
     }
   }, [colorCounts]);
 
@@ -131,8 +123,7 @@ const Game = ({ setResult }) => {
       return newColors;
     });
    if (cellColors[selectnumber - 1] === "#000000") {
-      window.location.href = "/result";
-      handleLose();
+      window.location.href = "/resultlose";
     }
   };
 

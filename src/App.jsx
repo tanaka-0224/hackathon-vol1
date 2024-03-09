@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Rules from './components/Rules';
 import Game from './components/Game';
 import Start from './components/Start';
-import Result from './components/Result';
+import ResultWin from './components/ResultWin';
+import ResultLose from './components/ResultLose';
+
 
 function App () {
   const [result, setResult] = useState(null);
@@ -12,12 +14,10 @@ function App () {
     <Router>
       <Routes>
         <Route exact path="/" element={<Start />} />
-        <Route path="/game"  element={<Game setResult={setResult}/>}/>
-          
-        
+        <Route path="/game"  element={<Game/>}/>
         <Route path="/rules" element={<Rules />} />  
-        <Route path="/result" element={<Result result={result}/>}/> 
-      
+        <Route path="/resultwin" element={<ResultWin/>}/> 
+        <Route path="/resultlose" element={<ResultLose/>}/> 
      </Routes>
     </Router>
   );

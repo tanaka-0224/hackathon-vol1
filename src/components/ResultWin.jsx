@@ -11,14 +11,14 @@ const Congratulation = () => {
         const newConfetti = [...confetti];
         newConfetti.push({ // 紙吹雪のパーティクルの情報を追加
           left: Math.random() * 100 + '%',
-          animationDuration: Math.random() * 10+5+ 's',
+          animationDuration: Math.random() * 5+5+ 's',
           backgroundColor: '#' + Math.floor(Math.random() * 16777215).toString(16) // ランダムな色
         });
         setConfetti(newConfetti);
-      },50); // 新しい紙吹雪のパーティクルを追加する間隔
+      },70); // 新しい紙吹雪のパーティクルを追加する間隔
 
       return () => clearInterval(interval);
-  }, [isWin, confetti]);
+  }, [confetti]);
 
   return (
     <div className="confetti-container">
@@ -40,7 +40,7 @@ const Congratulation = () => {
 
 const ResultWin = () => {
   return (
-  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', width: '200vh', height: '100%' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', width: '150vh', height: '100%' }}>
       <div className='flame'/>
       <div>
         <p style={{textAlign: "center",lineHeight:"0px",fontSize:300}}>WIN</p> <Congratulation isWin={true} />      
