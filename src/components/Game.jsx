@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import CountDown from "./CountDown";
 import Popup from "./Popup";
 import "../types/Visual.css";
-import { Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Game = ({ setResult }) => {
   const [randomSlangs, setRandomSlangs] = useState([]);
@@ -122,7 +122,7 @@ const Game = ({ setResult }) => {
 
       return newColors;
     });
-   if (cellColors[selectnumber - 1] === "#000000") {
+    if (cellColors[selectnumber - 1] === "#000000") {
       window.location.href = "/resultlose";
     }
   };
@@ -216,8 +216,6 @@ export default Game;
 //       setResult('lose');
 //     };
 
-   
-
 //    return (
 //       <div>
 //         <div class ="card-wrong" >
@@ -230,7 +228,7 @@ export default Game;
 //              <h1 style={{textAlign: "center",lineHeight:"110px",fontSize:50, color:"#000000"}}>
 //                 right
 //              </h1>
-//          </div> 
+//          </div>
 //         </Link>
 //         <Link to="/result" style={{ textDecoration: 'none' }}>
 //         <div class ="card-asasin" onClick={handleLose}>
