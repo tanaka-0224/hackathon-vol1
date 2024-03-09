@@ -2,9 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import CountDown from "./CountDown";
 import Popup from "./Popup";
 import "../types/Visual.css";
-import { Link } from "react-router-dom";
 
-const Game = ({ setResult }) => {
+const Game = () => {
   const [randomSlangs, setRandomSlangs] = useState([]);
   const [selectedSlang, setSelectedSlang] = useState("Select slang");
   const [error, setError] = useState(null);
@@ -14,8 +13,12 @@ const Game = ({ setResult }) => {
   const [isTimerRunning, setTimerRunning] = useState(false);
   const [selectnumber, setSelectNumber] = useState(0);
   const [colorCounts, setColorCounts] = useState({});
+  const [isCardRotated, setIsCardRotated] = useState(false); // ボタンの回転状態
 
   const gridRef = useRef([]);
+  const handleCardRotate = () => {
+    setIsCardRotated(!isCardRotated); // ボタンを回転させる状態に設定
+  };
 
   useEffect(() => {
     // 色の数が変更されたときの処理
@@ -165,6 +168,7 @@ const Game = ({ setResult }) => {
         {gridRows.map((row, rowIndex) =>
           row.map((slang, columnIndex) => (
             <div
+              className={isCardRotated ? "rotate" : ""} // isRotatingの状態によってクラスを適用する
               key={rowIndex * 5 + columnIndex}
               style={{
                 border: "1px solid #ccc",
@@ -176,9 +180,10 @@ const Game = ({ setResult }) => {
                     ? "#e0e0e0"
                     : defaultcellColors[rowIndex * 5 + columnIndex],
               }}
-              onClick={() =>
-                handleSlangClick(slang, rowIndex * 5 + columnIndex)
-              }
+              onClick={() => {
+                handleSlangClick(slang, rowIndex * 5 + columnIndex);
+                handleCardRotate();
+              }}
             >
               <span>{rowIndex * 5 + columnIndex + 1}</span> {/* 番号を表示 */}
               {slang}
