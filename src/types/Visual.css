@@ -24,42 +24,42 @@ body {
 }
 
 .card-wrong {
-  width: 300px;
+  width: 150px;
   height: 100px;
-  border-radius: 57px;
+  border-radius: 10px;
   background: #db605f;
-  box-shadow: 10px 10px 5px #af4d4c,-10px -10px 5px #ff7372;
+  box-shadow: 7px 7px 5px #af4d4c,-7px -7px 5px #ff7372;
 }
 
 
-.card-wrong:active {
+/* .card-wrong:active {
   box-shadow: inset 10px 10px 5px #af4d4c, inset -10px -10px 5px #ff7372;
-}
+} */
 
 .card-right {
-  width: 300px;
+  width: 150px;
   height: 100px;
-  border-radius: 57px;
+  border-radius: 10px;
   background: #20a095;
-  box-shadow: 10px 10px 5px #1a8077, -10px -10px 5px #26c0b3;
+  box-shadow: 7px 7px 5px #1a8077, -7px -7px 5px #26c0b3;
 }
 
 
-.card-right:active {
+/* .card-right:active {
   box-shadow: inset 10px 10px 5px #1a8077, inset -10px -10px 5px #26c0b3;
-}
+} */
 
 .card-asasin {
-  width: 300px;
+  width: 150px;
   height: 100px;
-  border-radius: 57px;
+  border-radius: 10px;
   background: #4a4e4d;
-  box-shadow: 10px 10px 5px #3b3e3e, -10px -10px 5px #595e5c;
+  box-shadow: 7px 7px 5px #3b3e3e, -7px -7px 5px #595e5c;
 }
 
 
-.card-asasin:active {
+/* .card-asasin:active {
   box-shadow: inset 10px 10px 5px #3b3e3e, inset -10px -10px 5px #595e5c;
-}
+} */
 
    
