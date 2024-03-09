@@ -10,8 +10,8 @@ public class MapData {
     public static int numberOfCorrectCards = 9;
     public static int numberOfAssasinCards = 1;
     public static int numberOfTotalFunctionalCards = numberOfCorrectCards + numberOfAssasinCards;
-    public static int[][] correctsAndAssasin_i = new int[numberOfTotalFunctionalCards][1];
-    public static int[][] correctsAndAssasin_j = new int[numberOfTotalFunctionalCards][1];
+    public static int[][] correctAndAssasin_i = new int[numberOfTotalFunctionalCards][1];
+    public static int[][] correctAndAssasin_j = new int[numberOfTotalFunctionalCards][1];
     public static int[][] map = new int[WIDTH][WIDTH];
 
     public void MapData() {
@@ -73,8 +73,8 @@ public class MapData {
             int i = index / WIDTH; // 行インデックス
             int j = index % WIDTH; // 列インデックス
             // System.out.println(matrix[i][j]);
-            correctsAndAssasin_i[indexCounter][0] = i;
-            correctsAndAssasin_i[indexCounter][0] = j;
+            correctAndAssasin_i[indexCounter][0] = i;
+            correctAndAssasin_i[indexCounter][0] = j;
             indexCounter++;
         }
     }
