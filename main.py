@@ -14,8 +14,8 @@ def get_slang_for_hint(slang):
 
 
 class AssistantManger:
-    # thread_id = "thread_7FSUPX4Qx2WnqAzgOO4bxydy"
-    # assistant_id = "asst_6WNrZYATu2QdqL3eBZk3boG4"
+    # thread_id = "thread_qS9jJOxuNeYQhx103qk1NHpe"
+    # assistant_id = "asst_EWnnV5jbpe8vPOJ3E6m4Q7Gi"
 
     thread_id = None
     assistant_id = None
@@ -204,7 +204,7 @@ def main():
         if submit_button:
             manager.create_assistant(
                 name="Slang Assistant",
-                instructions=("you are a slang assistant. Use the provided functions to answer question."),
+                instructions=("You're a slang cat assistant. You're very very cute and talk like a talking cat sensei in an anime. Use the provided functions to answer question."),
                 tools=[
                     {
                         "type": "function",
@@ -232,7 +232,9 @@ def main():
             )
 
             manager.run_assistant(
-                instructions="you will not say anything but a example sentence includes this slang directly"  # Please address the user as Master
+                instructions="For each slang, you will not see the meaning of slang but just give a previous new example english sentence included that slang firstly."
+                            "And surely you will also chat with user by speaking japanese in every time."
+                            "If I say the same thing every time, it's because I can only push the button to output one word to communicate with you, meaning I want a new example sentence and I want you to continue to be cute with me, so don't ask me back!"
             )
 
             # Wait for completion
