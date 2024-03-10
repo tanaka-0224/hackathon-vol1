@@ -32,15 +32,16 @@
     border-radius: 10px; /* 円形のパーティクルを作成 */
     background-color: #fff; /* デフォルトのパーティクルの背景色 */
     animation: confetti-fall; /* 紙吹雪の落下アニメーションを適用 */
+    animation-fill-mode: forwards;
   }
   
   @keyframes confetti-fall {
     0% {
-      transform: translateY(-140vh) rotate(0deg); /* 画面の上からパーティクルを開始 */
+      transform: translateY(-100vh) rotate(0deg); /* 画面の上からパーティクルを開始 */
       opacity: 1; /* 不透明度を0に設定してフェードインを実現 */
     }
     100% {
-      transform: translateY(90vh) rotate(720deg); /* 画面の下までパーティクルを落とす */
+      transform: translateY(100vh) rotate(720deg); /* 画面の下までパーティクルを落とす */
       opacity: 0.3; /* 不透明度を1に設定してフェードアウトを実現 */
     }
   }

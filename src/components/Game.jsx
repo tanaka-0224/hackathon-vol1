@@ -127,7 +127,7 @@ const Game = () => {
       return newColors;
     });
    if (cellColors[selectnumber - 1] === "#4a4e4d") {
-      window.location.href = "/resultlose";
+      window.location.href = "/resultwin";
     }
   };
 
