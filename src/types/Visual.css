@@ -191,10 +191,10 @@ body {
   padding: 1rem 1rem 1rem 1.5rem;
   border: 3px solid #333;
   font-weight: bold;
-  /* margin-left: 150px;
-  margin-top:10px; */
   height: 200px;
   width: 1000px;
+  display: table; 
+  table-layout: fixed;
 }
 
 .talkMaster:before,
@@ -228,8 +228,6 @@ body {
   padding: 1rem 1rem 1rem 1.5rem;
   border: 3px solid #333;
   font-weight: bold;
-  /* margin-left: 150px;
-  margin-top:10px; */
   height: 200px;
   width: 1000px;
 }
@@ -260,45 +258,9 @@ body {
   border-width: 12px;
 }
 
-.contactForm {
-  margin: -20px 0;
-}
-
-.formField {
-  position: relative;
-  margin: 32px 0;
-}
-
-.inputText {
-  display: block;
-  width: 100%;
-  height: 36px;
-  border-width: 0 0 2px 0;
-  border-color: #000;
-  font-family: 'Lusitana', serif;
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: 400;
-}
-
-.inputText:focus {
-  outline: none;
-}
-
-.inputText:focus + .label,
-.inputText.not-empty + .label {
-  transform: translateY(-24px);
-}
-
-.label {
-  position: absolute;
-  left: 20px;
-  bottom: 11px;
-  font-family: 'Lusitana', serif;
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: 400;
-  color: #888;
-  cursor: text;
-  transition: transform 0.2s ease-in-out;
+.Master{
+  display: table-cell; 
+  overflow-wrap: normal;
+  word-wrap: break-word;
+  width: 950px;
 }

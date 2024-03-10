@@ -17,8 +17,10 @@ const Talk  = () => {
             <img src="./images/ringo.png" className="slangmaster" alt="slang master"/>
             <p style={{ fontSize:40, textAlign:"center",marginTop: '10px'}}>Slang Master</p>
         </div>
-        <div className="talkMaster"  style={{ marginTop: '50px',fontSize:20, display:"flex"}}>
-            helloaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        <div className="talkMaster"  style={{ marginTop: '50px',fontSize:20}}>
+            <p className="Master">
+                hello hey i am slang master you are not good at speaking slang i will tell you how to speak slangs enjoy this game 
+            </p>
         </div>    
         </div>
         <div style={{ display: 'flex', justifyContent: 'center',marginTop: '30px' }}>
@@ -30,6 +32,7 @@ const Talk  = () => {
                         type="text"
                         value={message}
                         onChange={handleMessageChange}
+                        placeholder="Talk with Slang Master using slangs you learned!"
                         required
                     />
                 </form>
