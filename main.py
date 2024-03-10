@@ -248,9 +248,14 @@ def main():
             )
 
             manager.run_assistant(
-                instructions="For each slang, you will not see the meaning of slang but just give a previous new example english sentence included that slang firstly."
-                             "And surely you will also chat with user by speaking japanese in every time."
-                             "If I say the same thing every time, it's because I can only push the button to output one word to communicate with you, meaning I want a new example sentence and I want you to continue to be cute with me, so don't ask me back!"
+                instructions=(
+                    "When you detect a slang term in the user's message, respond by first giving a new and original English example sentence that includes the slang. "
+                    "Additionally, continue the conversation by including Japanese phrases to maintain the cute and engaging persona. "
+                    "At the end of each response, provide specific feedback evaluating the user's use of the slang with a segment starting 'Feedback:'. "
+                    "This feedback should offer insight into their usage—commend good use or suggest improvements. "
+                    "Remember, if the user repeats the same slang, it's because they can only interact through button presses, indicating a request for new examples. "
+                    "Continue to provide fresh sentences and feedback without questioning their repetition, keeping the interaction helpful and charming."
+                )
             )
 
             # Wait for completion
