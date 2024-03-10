@@ -4,7 +4,7 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 
 @app.route('/gpt/process_slang', methods=['POST'])
-@cross_origin(origin='localhost', headers=['Content- Type', 'Authorization'])
+@cross_origin(origin='*', headers=['Content- Type', 'Authorization'])
 def process_slang():
     # Use predefined IDs or retrieve from request for flexibility
     default_thread_id = "thread_PjW3lJ4BEmcUuHDaEEX3YSYy"
