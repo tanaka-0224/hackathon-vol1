@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import CountDown from "./CountDown";
 import Popup from "./Popup";
 import "../types/Visual.css";
+import async from "async";
 
 const Game = () => {
   const [randomSlangs, setRandomSlangs] = useState([]);
@@ -14,9 +15,11 @@ const Game = () => {
   const [selectnumber, setSelectNumber] = useState(0);
   const [colorCounts, setColorCounts] = useState({});
   const [isCardRotated, setIsCardRotated] = useState(false); // ボタンの回転状態
-
+  const [tips, setTips] = useState("");
 
   const gridRef = useRef([]);
+
+  const GPT_CHAT_URI = `${process.env.REACT_APP_GPT_API_URL}/gpt/process_slang`;
   const handleCardRotate = () => {
     setIsCardRotated(!isCardRotated); // ボタンを回転させる状態に設定
   };
@@ -102,19 +105,40 @@ const Game = () => {
     setTimerRunning(true);
   };
 
-  const handleSlangClick = (slang, rowIndex) => {
-    const str1 = rowIndex;
-    const result1 = Number(str1);
+    const handleSlangClick = async (slang, rowIndex) => {
+        const str1 = rowIndex;
+        const result1 = Number(str1);
 
-    // selectnumberを更新
-    setSelectNumber(result1 + 1);
+        // selectnumberを更新
+        setSelectNumber(result1 + 1);
 
-    // 変更
-    setSelectedSlang(slang);
-  };
+        // 変更
+        setSelectedSlang(slang);
 
-  const handleButtonPress = () => {
-    setDefaultCellColors((prevColors) => {
+        try {
+            const response = await fetch(GPT_CHAT_URI, {
+                method: 'POST', // 请确认这里是POST请求还是GET请求，根据你的后端API来决定
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ slang: slang }), // 将所选的slang作为JSON对象的属性发送到后端
+            });
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            const data = await response.json();
+            // 假设返回的数据中包含名为tips的字段
+            setTips(data.hint_message); // 更新tips状态
+        } catch (error) {
+            console.error('Error fetching tips:', error);
+            // 如果获取失败，将tips设置为空字符串或其他默认值
+            setTips('');
+        }
+    };
+
+    const handleButtonPress = () => {
+        setDefaultCellColors((prevColors) => {
       const newColors = [...prevColors];
       newColors[selectnumber - 1] = cellColors[selectnumber - 1];
 
@@ -217,7 +241,7 @@ const Game = () => {
         Press me!
       </div>
       <div className="balloonTips" style={{textAlign:"center", fontSize:20}}>
-        tips
+          <p>{tips}</p>
       </div>
       </div>
       {/* カウントダウンタイマー */}

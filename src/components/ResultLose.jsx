@@ -18,7 +18,7 @@ const ResultLose = () => {
       </Link>
     
     <Link to="/game" style={{ textDecoration: 'none' }}>
-      <div class ="neumobutton" >
+      <div className ="neumobutton" >
           <h1 style={{textAlign: "center",marginTop:"0px",fontSize:65, color:"#000000"}}>
               Replay
           </h1>
