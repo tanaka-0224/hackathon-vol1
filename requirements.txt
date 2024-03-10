@@ -2,3 +2,4 @@ python-dotenv
 openai
 streamlit
 flask
+flask-cors

@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify
 from main import AssistantManger  # Import your adjusted AssistantManger class
-
+from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 
 @app.route('/gpt/process_slang', methods=['POST'])
+@cross_origin(origin='localhost', headers=['Content- Type', 'Authorization'])
 def process_slang():
     # Use predefined IDs or retrieve from request for flexibility
     default_thread_id = "thread_PjW3lJ4BEmcUuHDaEEX3YSYy"
@@ -61,13 +62,14 @@ def process_slang():
 
 
 @app.route('/gpt/scene_chat', methods=['POST'])
+@cross_origin(origin='localhost', headers=['Content- Type', 'Authorization'])
 def scene_chat():
     data = request.json
     input_sentences = data['input_sentences']
 
     # Optionally get thread and assistant IDs from the request
-    thread_id = "thread_caPkkQvN6vn8ur9MX7kiwE41"
-    assistant_id = "asst_6eUlNCOWTYwlaoFUT4IdggMW"
+    thread_id = "thread_EAdzySvyVqvbQmFLS90UC2T6"
+    assistant_id = "asst_hpDMbPw3QiSylG103i4Z4Hws"
 
     # Initialize the manager with the determined IDs
     manager = AssistantManger(thread_id=thread_id, assistant_id=assistant_id)
@@ -95,12 +97,12 @@ def scene_chat():
     manager.add_message_to_thread(role="user", content=input_sentences)
     manager.run_assistant(
         instructions=(
-            "Incorporate English slang into your responses, using the terms the user has learned. "
-            "When a slang term is used by the user, identify and highlight slang term by \ \ in your response. "
-            "Maintain the scenario context and engage in a dialogue that is educational and enjoyable. "
-            "Provide feedback on the user's slang usage at the end of your interaction. "
-            "Adopt the persona of a friendly and engaging 'talking cat sensei' from an anime, "
-            "enhancing the learning experience with your character's charm."
+            "When you detect a slang term like 'lame asf' used by the user, acknowledge it directly in your response. "
+            "Provide specific feedback on the usage of that slang term, considering its context and appropriateness. "
+            "For example, you can explain the term's connotations, suggest alternative expressions, or discuss the settings "
+            "in which its use might be more suitable or avoided. Always tailor your feedback to the slang used, ensuring it is "
+            "relevant and helpful. As the 'talking cat sensei,' maintain an engaging and supportive tone, facilitating a "
+            "positive and educational dialogue."
         )
     )
 
