@@ -68,8 +68,8 @@ def scene_chat():
     input_sentences = data['input_sentences']
 
     # Optionally get thread and assistant IDs from the request
-    thread_id = "thread_EAdzySvyVqvbQmFLS90UC2T6"
-    assistant_id = "asst_hpDMbPw3QiSylG103i4Z4Hws"
+    thread_id = "thread_6Gkw18lzotaaWEdlkpmlr6hp"
+    assistant_id = "asst_W9b88ltwF1fqyqVOAxKibQMH"
 
     # Initialize the manager with the determined IDs
     manager = AssistantManger(thread_id=thread_id, assistant_id=assistant_id)
