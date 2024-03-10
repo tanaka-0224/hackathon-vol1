@@ -23,7 +23,7 @@ const Game = () => {
 
   useEffect(() => {
     // 色の数が変更されたときの処理
-    if (colorCounts["#FF0000"] === 12) {
+    if (colorCounts["#db605f"] === 12) {
       // 画面遷移させる処理
       window.location.href = "/resultwin";
     }
@@ -43,9 +43,9 @@ const Game = () => {
           .filter(Boolean);
 
         const colors = Array(12)
-          .fill("#FF0000")
-          .concat(Array(12).fill("#0000FF"))
-          .concat(["#000000"]);
+          .fill("#db605f")
+          .concat(Array(12).fill("#20a095"))
+          .concat(["#4a4e4d"]);
         // 色の順番をシャッフルする
         colors.sort(() => Math.random() - 0.5);
         setCellColors(colors);
@@ -126,7 +126,7 @@ const Game = () => {
 
       return newColors;
     });
-   if (cellColors[selectnumber - 1] === "#000000") {
+   if (cellColors[selectnumber - 1] === "#4a4e4d") {
       window.location.href = "/resultlose";
     }
   };
@@ -159,7 +159,7 @@ const Game = () => {
       <div className="selected">
         <h1>{selectedSlang && <p style={{fontSize: "40px"}}>Selected Slang: {selectedSlang}</p>}</h1>
       </div>
-      <div className="balloonSlang" style={{textAlign:"center",fontSize:50}}>
+      <div className="balloonSlang" style={{textAlign:"center",fontSize:40}}>
         slang number
       </div>
       </div>

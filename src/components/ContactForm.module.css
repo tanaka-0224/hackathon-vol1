@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+  .inputText {
+    display: inline;
+    width:950px;
+    height: 180px;
+    border-width: 0 0 3px 0;
+    border-color: #000;
+    background-color: #FBF3BA;
+    line-height: 30px;
+    font-family: 'Kalam', sans-serif;
+    font-size: 20px;
+    margin-left: 18px;
+    font-weight: 400;
+  }
+  
+  .inputText:focus {
+    outline: none;
+  }
+  
+  

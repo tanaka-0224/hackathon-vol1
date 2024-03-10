@@ -1,8 +1,15 @@
 import "../types/Visual.css";
 import { Link} from 'react-router-dom';
-import React from "react";
+import React, {useState} from "react";
+import styles from "./ContactForm.module.css"
 
 const Talk  = () => {
+    const [message, setMessage] = useState('');
+
+    const handleMessageChange = (event) => {
+      setMessage(event.target.value);
+    };
+
     return (
     <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <div style={{ display: 'flex', justifyContent: 'center',marginTop: '30px' }}>
@@ -10,12 +17,24 @@ const Talk  = () => {
             <img src="./images/ringo.png" className="slangmaster" alt="slang master"/>
             <p style={{ fontSize:40, textAlign:"center",marginTop: '10px'}}>Slang Master</p>
         </div>
-        <div className="talkMaster"  style={{ marginTop: '50px'}}>
-            hello
+        <div className="talkMaster"  style={{ marginTop: '50px',fontSize:20, display:"flex"}}>
+            helloaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         </div>    
         </div>
-        <div className="talkPlayer" style={{marginTop: '-30px'}}>
-            hello, master
+        <div style={{ display: 'flex', justifyContent: 'center',marginTop: '30px' }}>
+            <div className="talkPlayer" style={{marginTop: '-50px',marginLeft: "130px"}}>
+               <form>
+                    <textarea
+                        id="message"
+                        className={`${styles.inputText} ${styles.jsInput}`}
+                        type="text"
+                        value={message}
+                        onChange={handleMessageChange}
+                        required
+                    />
+                </form>
+            </div>
+            <div className="pressme" style={{textAlign: "center", fontSize:40, marginLeft:"30px",marginTop:"100px"}}>Send</div>
         </div>
         <Link to="/game" style={{ textDecoration: 'none' }}>
             <div class ="neumobutton">
