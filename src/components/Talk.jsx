@@ -29,7 +29,7 @@ const Talk = () => {
             .then(data => {
                 setIsLoading(false); // 加载完成设置isLoading为false
                 // 组合显示聊天消息和反馈信息
-                setDisplayMessage(`${data.chat_message}\n\nFeedback: ${data.Feedback}`);
+                setDisplayMessage(`${data.chat_message}\n`);
             })
             .catch(error => {
                 setIsLoading(false); // 出错时也需要设置isLoading为false
