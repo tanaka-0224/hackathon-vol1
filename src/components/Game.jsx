@@ -13,13 +13,8 @@ const Game = () => {
   const [isTimerRunning, setTimerRunning] = useState(false);
   const [selectnumber, setSelectNumber] = useState(0);
   const [colorCounts, setColorCounts] = useState({});
-  const [isCardRotated, setIsCardRotated] = useState(false); // ボタンの回転状態
-
-
   const gridRef = useRef([]);
-  const handleCardRotate = () => {
-    setIsCardRotated(!isCardRotated); // ボタンを回転させる状態に設定
-  };
+  const [sendSlangs, setSendSlangs] = useState([]);
 
   useEffect(() => {
     // 色の数が変更されたときの処理
@@ -86,6 +81,19 @@ const Game = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const filteredSlangs = randomSlangs.reduce((acc, slang, index) => {
+      if (cellColors[index] === "#20a095") {
+        return [...acc, slang];
+      }
+      return acc;
+    }, []);
+
+    setSendSlangs(filteredSlangs);
+  }, [randomSlangs, cellColors]);
+
+  console.log(sendSlangs);
+
   const handlePopupStartButtonClick = () => {
     // ここで初期のランダムな背景色を使って何かの処理を行うことができます
 
@@ -102,18 +110,85 @@ const Game = () => {
     setTimerRunning(true);
   };
 
-  const handleSlangClick = (slang, rowIndex) => {
-    const str1 = rowIndex;
-    const result1 = Number(str1);
+  const [gridRotations, setGridRotations] = useState(Array(25).fill(false));
+  const [transparentGrids, setTransparentGrids] = useState([]);
 
-    // selectnumberを更新
-    setSelectNumber(result1 + 1);
-
-    // 変更
+  // handleSlangClick 関数内
+  /*const handleSlangClick = (slang, rowIndex, columnIndex) => {
+    setSelectNumber(rowIndex * 5 + columnIndex + 1);
     setSelectedSlang(slang);
+
+    // すでに回転されているセルかどうかを判定
+    const isRotated = gridRotations[rowIndex * 5 + columnIndex];
+
+    if (!isRotated) {
+      // セルが回転されていない場合の処理
+      setDefaultCellColors((prevColors) => {
+        const newColors = [...prevColors];
+        newColors[selectnumber - 1] = cellColors[selectnumber - 1];
+
+        const counts = {};
+        newColors.forEach((color) => {
+          counts[color] = (counts[color] || 0) + 1;
+        });
+        setColorCounts(counts);
+
+        setTransparentGrids((prevTransparentGrids) => [
+          ...prevTransparentGrids,
+          selectnumber,
+        ]);
+
+        const selectedGridIndex = rowIndex * 5 + columnIndex + 1;
+
+        const updatedRotations = gridRotations.map((rotation, index) =>
+          index === selectedGridIndex - 1 ? !rotation : rotation
+        );
+
+        setGridRotations(updatedRotations);
+
+        return newColors;
+      });
+    } else {
+      // セルがすでに回転されている場合の処理
+      // 二回目のクリックに対する処理をここに追加
+      console.log("セルがすでに回転されています");
+    }
+  };*/
+
+  const handleSlangClick = (slang, rowIndex, columnIndex) => {
+    const selectedGridIndex = rowIndex * 5 + columnIndex + 1;
+
+    setSelectNumber(rowIndex * 5 + columnIndex + 1);
+    setSelectedSlang(slang);
+
+    // 選択されたGridだけを回転させる
+    const updatedRotations = gridRotations.map((rotation, index) =>
+      index === selectedGridIndex - 1 ? !rotation : rotation
+    );
+
+    setGridRotations(updatedRotations);
+
+    const isRotated = gridRotations[rowIndex * 5 + columnIndex];
+
+    if (!isRotated) {
+      setGridRotations(updatedRotations);
+    }
+
+    setTransparentGrids((prevTransparentGrids) => [
+      ...prevTransparentGrids,
+      selectedGridIndex,
+    ]);
+
+    setTimeout(() => {
+      setTransparentGrids((prevTransparentGrids) =>
+        prevTransparentGrids.filter(
+          (gridIndex) => gridIndex !== selectedGridIndex
+        )
+      );
+    }, 1000);
   };
 
-  const handleButtonPress = () => {
+  const handleButtonPress = (rowIndex, columnIndex) => {
     setDefaultCellColors((prevColors) => {
       const newColors = [...prevColors];
       newColors[selectnumber - 1] = cellColors[selectnumber - 1];
@@ -124,10 +199,24 @@ const Game = () => {
       });
       setColorCounts(counts);
 
+      /*setTransparentGrids((prevTransparentGrids) => [
+        ...prevTransparentGrids,
+        selectnumber,
+      ]);*/
+
+      const selectedGridIndex = rowIndex * 5 + columnIndex + 1;
+
+      const updatedRotations = gridRotations.map((rotation, index) =>
+        index === selectedGridIndex - 1 ? !rotation : rotation
+      );
+
+      setGridRotations(updatedRotations);
+
       return newColors;
     });
-   if (cellColors[selectnumber - 1] === "#4a4e4d") {
-      window.location.href = "/resultwin";
+
+    if (cellColors[selectnumber - 1] === "#4a4e4d") {
+      window.location.href = "/resultlose";
     }
   };
 
@@ -145,7 +234,7 @@ const Game = () => {
 
   return (
     <div>
-      {/* スタートボタン ・ポーズボタン*/}
+      {/* スタートボタン */}
       <div className="pressme" style={{ textAlign: "center",fontSize: "40px", marginTop: "30px"}}onClick={handleStartButtonClick}>Porse</div>
 
       {/* ポップアップ */}
@@ -155,13 +244,14 @@ const Game = () => {
           onStartButtonClick={handlePopupStartButtonClick}
         />
       )}
+
       <div style={{ display: 'flex' }}>
-      <div className="selected">
-        <h1>{selectedSlang && <p style={{fontSize: "40px"}}>Selected Slang: {selectedSlang}</p>}</h1>
-      </div>
-      <div className="balloonSlang" style={{textAlign:"center",fontSize:40}}>
-        slang number
-      </div>
+        <div className="selected">
+          <h1>{selectedSlang && <p style={{fontSize: "40px"}}>Selected Slang: {selectedSlang}</p>}</h1>
+        </div>
+        <div className="balloonSlang" style={{textAlign:"center",fontSize:40}}>
+          slang number
+        </div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
       <div className="cards"
@@ -174,22 +264,30 @@ const Game = () => {
         {gridRows.map((row, rowIndex) =>
           row.map((slang, columnIndex) => (
             <div
-              className={isCardRotated ? 'rotate' : ''} // isRotatingの状態によってクラスを適用する
-              key={rowIndex * 5 + columnIndex}
+              className={
+                gridRotations[rowIndex * 5 + columnIndex] ? "rotate" : ""
+              }
+              // isRotatingの状態によってクラスを適用する
+              key={rowIndex * 5 + columnIndex + 1}
               style={{
                 border: "1px solid #ccc",
                 padding: "10px",
-                fontSize:20,
                 textAlign: "center",
                 cursor: "pointer",
+                transform: gridRotations[rowIndex * 5 + columnIndex]
+                  ? "rotateY(180deg)"
+                  : "none",
+                color: transparentGrids.includes(rowIndex * 5 + columnIndex + 1)
+                  ? "transparent"
+                  : "inherit",
+                transition: "transform 0.5s", // スムーズなアニメーションのためのトランジションを追加
                 backgroundColor:
                   selectedSlang === slang
                     ? "#e0e0e0"
                     : defaultcellColors[rowIndex * 5 + columnIndex],
               }}
-              onClick={() =>{
-                handleSlangClick(slang, rowIndex * 5 + columnIndex)
-                handleCardRotate();
+              onClick={() => {
+                handleSlangClick(slang, rowIndex, columnIndex);
               }}
             >
               <span>{rowIndex * 5 + columnIndex + 1}</span> {/* 番号を表示 */}
@@ -198,11 +296,10 @@ const Game = () => {
           ))
         )}
       </div>
-
-      <div style={{ marginLeft: '20px', marginTop: '30px' }} >
-        <img src="./images/ringo.png" className="slangmaster" alt="slang master"/>
-        <p style={{ fontSize:40, textAlign:"center",marginTop: '30px'}}>Slang Master</p>
-      </div>
+        <div style={{ marginLeft: '20px', marginTop: '30px' }} >
+          <img src="./images/ringo.png" className="slangmaster" alt="slang master"/>
+          <p style={{ fontSize:40, textAlign:"center",marginTop: '30px'}}>Slang Master</p>
+        </div>
       </div>
       <div style={{ display: 'flex' }}>
       <div className="pressme"
@@ -212,7 +309,7 @@ const Game = () => {
           fontSize: "40px",
           textAlign: "center"
         }}
-       onClick={handleButtonPress}
+        onClick={handleButtonPress}
       >
         Press me!
       </div>
@@ -227,4 +324,3 @@ const Game = () => {
 };
 
 export default Game;
-
