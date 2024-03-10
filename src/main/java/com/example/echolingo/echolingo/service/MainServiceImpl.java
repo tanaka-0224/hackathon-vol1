@@ -15,7 +15,15 @@ public class MainServiceImpl implements MainService{
     public Rules getRules(){
         Rules rules = new Rules();
         rules.setTitle("Welcome to EchoLingo's code game!");
-        rules.setContent("Here is our rule.");
+        rules.setContent("   There are 25 cards, each with slang written on them.\n" +
+                "        When a card is clicked, the Slang Master provides an example sentence using that slang. \n" +
+                "        Afterward, when the \"Select\" button is clicked, the card turns either blue, red, or black \n" +
+                "        (blue: 12 cards, red: 12 cards, black: 1 card). \n" +
+                "        The Slang Master knows the color of the cards and mentions a word \n" +
+                "        related to the slangs written on some of the blue cards, along with the number of cards (e.g., Energy 4). \n" +
+                "        Please select cards you think are blue. \n" +
+                "        If you choose a red card, the Slang Master will mention the next word and its number. \n" +
+                "        If you choose a black card, it's game over. If you manage to guess all the blue cards with in the time, you win.\n");
         return rules;
     }
 
